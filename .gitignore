@@ -1,0 +1,48 @@
+# Umgebungsvariablen
+.env
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Logs
+logs
+*.log
+
+# Build-Verzeichnisse
+dist/
+build/
+public/build/
+
+# Betriebssystem-Dateien
+.DS_Store
+Thumbs.db
+
+# IDEs und Editoren
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# Temporäre Dateien
+*.tmp
+*.temp
+.cache/
+
+# Uploads und Media (bei Entwicklung lokale Kopien verwenden)
+uploads/
+media/
+
+# Testabdeckungsdateien
+coverage/
+
+# Zertifikate und Schlüssel
+*.pem
+*.key
+*.crt 
