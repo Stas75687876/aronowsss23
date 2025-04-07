@@ -170,20 +170,19 @@ function initAnimations() {
             trigger: '#ueber-uns .rounded-xl',
             start: 'top 80%',
         },
-        scale: 0.9,
+        x: 100, // Horizontale Bewegung von rechts nach links
         opacity: 0,
-        y: 50,
-        duration: 1.2,
-        ease: "power3.out"
+        duration: 1,
+        ease: "power2.out"
     });
     
-    // Animation für den Performance-Indikator
+    // Performance-Indikator mit etwas Verzögerung einblenden
     gsap.from('#ueber-uns .performance-indicator', {
         scrollTrigger: {
             trigger: '#ueber-uns .performance-indicator',
             start: 'top 80%',
         },
-        scale: 0.5,
+        x: 50,
         opacity: 0,
         duration: 0.8,
         delay: 0.3,
