@@ -401,6 +401,13 @@ header.scrolled {
   box-shadow: var(--shadow-normal);
   border: 1px solid rgba(212, 175, 55, 0.1);
   transition: var(--transition-normal);
+  position: relative;
+  z-index: 10;
+  overflow: visible;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .values-card:hover {
@@ -919,9 +926,12 @@ header.scrolled {
   }
   
   .values-card {
-    position: static;
-    margin-top: 2rem;
-    max-width: 100%;
+    position: relative;
+    margin-top: 20px;
+    margin-right: 0;
+    margin-bottom: 20px;
+    right: 0;
+    bottom: 0;
   }
   
   .performance-indicator {
