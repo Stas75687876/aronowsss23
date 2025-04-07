@@ -398,25 +398,36 @@ header.scrolled {
 
 .values-card {
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-gold);
-  border: 2px solid var(--gold);
-  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.8);
   transition: var(--transition-normal);
   position: absolute;
   z-index: 10;
   overflow: visible;
   width: auto;
-  max-width: 280px;
+  max-width: 200px;
   display: block;
   margin-bottom: 10px;
   backdrop-filter: blur(4px);
-  animation: glow 3s infinite alternate;
+  animation: whiteGlow 3s infinite alternate;
 }
 
 .values-card:hover {
-  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
-  border: 2px solid rgba(212, 175, 55, 0.8);
-  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transform: translateY(-3px);
+}
+
+@keyframes whiteGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
 }
 
 /* Partner-Slideshow */
@@ -1329,6 +1340,12 @@ input:checked + .cookie-slider:before {
     right: 0;
     bottom: 0;
   }
+  
+  .values-card {
+    max-width: 180px;
+    position: relative;
+    margin-top: 15px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1336,5 +1353,9 @@ input:checked + .cookie-slider:before {
   .dsg-speed-badge,
   .values-card {
     transform: scale(0.7);
+  }
+  
+  .values-card {
+    max-width: 160px;
   }
 } 
