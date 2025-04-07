@@ -3,13 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <title>Datenschutzerklärung | AB-Performance</title>
-    <meta name="description" content="Datenschutzerklärung von AB-Performance - Ihr Spezialist für Chiptuning und Fahrzeugoptimierung in Kleve.">
+    <title>Chipkonfigurator | AB-Performance</title>
+    <meta name="description" content="Konfigurieren Sie Ihr individuelles Chiptuning für Ihr Fahrzeug - AB-Performance in Kleve.">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/flag-icons@6.6.6/css/flag-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <style>
+        .maintenance-icon {
+            position: relative;
+        }
+        .animate-spin-slow {
+            animation: spin 8s linear infinite;
+        }
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background-color: #D4AF37;
+            color: #000;
+            font-weight: 600;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #EBC349;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body class="bg-black text-white overflow-x-hidden">
     <!-- Header -->
@@ -24,7 +54,7 @@
                     <li class="nav-item"><a href="index.html#ueber-uns" class="text-white hover:text-gold transition-colors">Über Uns</a></li>
                     <li class="nav-item"><a href="index.html#leistungen" class="text-white hover:text-gold transition-colors">Leistungen</a></li>
                     <li class="nav-item"><a href="index.html#projekte" class="text-white hover:text-gold transition-colors">Projekte</a></li>
-                    <li class="nav-item"><a href="chipkonfigurator.html" class="text-white hover:text-gold transition-colors">Chipkonfigurator</a></li>
+                    <li class="nav-item"><a href="chipkonfigurator.html" class="text-gold hover:text-white transition-colors">Chipkonfigurator</a></li>
                     <li class="nav-item"><a href="index.html#kontakt" class="text-white hover:text-gold transition-colors">Kontakt</a></li>
                 </ul>
             </nav>
@@ -54,23 +84,73 @@
                     <li><a href="index.html#ueber-uns" class="text-2xl text-white hover:text-gold transition-colors">Über Uns</a></li>
                     <li><a href="index.html#leistungen" class="text-2xl text-white hover:text-gold transition-colors">Leistungen</a></li>
                     <li><a href="index.html#projekte" class="text-2xl text-white hover:text-gold transition-colors">Projekte</a></li>
-                    <li><a href="chipkonfigurator.html" class="text-2xl text-white hover:text-gold transition-colors">Chipkonfigurator</a></li>
+                    <li><a href="chipkonfigurator.html" class="text-2xl text-gold hover:text-white transition-colors">Chipkonfigurator</a></li>
                     <li><a href="index.html#kontakt" class="text-2xl text-white hover:text-gold transition-colors">Kontakt</a></li>
                 </ul>
             </nav>
         </div>
     </div>
 
-    <!-- Content Section -->
+    <!-- Maintenance Banner -->
     <section class="pt-32 pb-20 bg-darkgray min-h-screen">
         <div class="container mx-auto px-4">
             <div class="bg-black p-8 rounded-lg shadow-xl">
-                <h1 class="section-title text-center mb-12">Unsere <span class="text-gold">Datenschutz&shy;erklärung</span></h1>
+                <div class="relative">
+                    <div class="absolute -top-12 left-1/2 transform -translate-x-1/2">
+                        <div class="bg-gold rounded-full p-4 shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <h1 class="section-title text-center mt-8 mb-12">Unser <span class="text-gold">Chipkonfigurator</span></h1>
                 
-                <div class="legal-content bg-opacity-50 p-6 rounded-lg shadow-inner">
-                    <!-- IT-Recht-Kanzlei Datenschutz Snippet -->
-                    <div class="itrk-legaltext" data-itrk-legaltext-url="https://itrk.legal/Ngl.8V.GXb-iframe.html"></div>
-                    <script src="https://www.it-recht-kanzlei.de/js/itrk-legaltext.js"></script>
+                <div class="maintenance-content bg-darkgray bg-opacity-50 p-8 rounded-lg shadow-inner text-center">
+                    <div class="maintenance-icon mx-auto mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-gold mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <div class="maintenance-gear absolute animate-spin-slow">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-700 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <h2 class="text-3xl font-bold mb-6">In Wartung</h2>
+                    <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Unser interaktiver Chipkonfigurator wird aktuell entwickelt und steht in Kürze für Sie zur Verfügung. Hier können Sie bald Ihr individuelles Chiptuning für Ihr Fahrzeug konfigurieren.</p>
+                    
+                    <div class="space-y-4 mb-12 max-w-lg mx-auto">
+                        <div class="flex items-center bg-black bg-opacity-50 p-4 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gold mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Konfiguration nach Fahrzeugmodell und Motor</span>
+                        </div>
+                        <div class="flex items-center bg-black bg-opacity-50 p-4 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gold mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Verschiedene Leistungsstufen zur Auswahl</span>
+                        </div>
+                        <div class="flex items-center bg-black bg-opacity-50 p-4 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gold mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Direkte Preisberechnung und Anfrage</span>
+                        </div>
+                    </div>
+
+                    <a href="index.html#kontakt" class="btn-primary inline-flex items-center">
+                        <span>Kontaktieren Sie uns für Anfragen</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -84,10 +164,6 @@
                     <img src="images/ab-performance-logo.webp" alt="AB-Performance" class="h-16 mb-6">
                     <p class="text-gray-400 mb-4">AB-Performance ist Ihr Spezialist für professionelles Chiptuning, Soundoptimierungen und DSG-Optimierungen für VAG-Fahrzeuge in Kleve und Umgebung.</p>
                     <p class="text-gray-400">© 2024 AB-Performance. Alle Rechte vorbehalten.</p>
-                    <div class="mt-4 text-gray-400">
-                        <p><strong>Office:</strong><br>Beginnenkamp 40<br>47533 Kleve, Deutschland</p>
-                        <p class="mt-2"><strong>Werkstatt:</strong><br>Schwänchen 28<br>47533 Kleve, Deutschland</p>
-                    </div>
                 </div>
                 <div>
                     <h4 class="text-xl font-bold mb-6">Schnelllinks</h4>

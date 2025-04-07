@@ -23,6 +23,7 @@
                     <li class="nav-item"><a href="/#ueber-uns" class="text-white hover:text-gold transition-colors">Über Uns</a></li>
                     <li class="nav-item"><a href="/#leistungen" class="text-white hover:text-gold transition-colors">Leistungen</a></li>
                     <li class="nav-item"><a href="/#projekte" class="text-white hover:text-gold transition-colors">Projekte</a></li>
+                    <li class="nav-item"><a href="/chipkonfigurator.html" class="text-white hover:text-gold transition-colors">Chipkonfigurator</a></li>
                     <li class="nav-item"><a href="/#kontakt" class="text-white hover:text-gold transition-colors">Kontakt</a></li>
                 </ul>
             </nav>
@@ -35,6 +36,29 @@
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-black-90 z-45 transform translate-x-full transition-transform duration-300">
+        <div class="container mx-auto px-4 py-8 h-full flex flex-col">
+            <div class="flex justify-end">
+                <button id="closeMenu" class="text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex-grow flex items-center justify-center">
+                <ul class="text-center space-y-6">
+                    <li><a href="/#home" class="text-2xl text-white hover:text-gold transition-colors">Home</a></li>
+                    <li><a href="/#ueber-uns" class="text-2xl text-white hover:text-gold transition-colors">Über Uns</a></li>
+                    <li><a href="/#leistungen" class="text-2xl text-white hover:text-gold transition-colors">Leistungen</a></li>
+                    <li><a href="/#projekte" class="text-2xl text-white hover:text-gold transition-colors">Projekte</a></li>
+                    <li><a href="/chipkonfigurator.html" class="text-2xl text-white hover:text-gold transition-colors">Chipkonfigurator</a></li>
+                    <li><a href="/#kontakt" class="text-2xl text-white hover:text-gold transition-colors">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 
     <!-- Error Section -->
     <section class="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
@@ -77,6 +101,15 @@
     <footer class="py-8 bg-black">
         <div class="container mx-auto px-4 text-center">
             <img src="images/ab-performance-logo.webp" alt="AB-Performance" class="h-12 mx-auto mb-4">
+            <h4 class="text-xl font-bold mb-6">Schnelllinks</h4>
+            <ul class="space-y-3">
+                <li><a href="/#home" class="text-gray-400 hover:text-gold transition-colors">Home</a></li>
+                <li><a href="/#ueber-uns" class="text-gray-400 hover:text-gold transition-colors">Über Uns</a></li>
+                <li><a href="/#leistungen" class="text-gray-400 hover:text-gold transition-colors">Leistungen</a></li>
+                <li><a href="/#projekte" class="text-gray-400 hover:text-gold transition-colors">Projekte</a></li>
+                <li><a href="/chipkonfigurator.html" class="text-gray-400 hover:text-gold transition-colors">Chipkonfigurator</a></li>
+                <li><a href="/#kontakt" class="text-gray-400 hover:text-gold transition-colors">Kontakt</a></li>
+            </ul>
             <p class="text-gray-400">© 2023 AB-Performance. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
