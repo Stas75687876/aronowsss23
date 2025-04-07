@@ -398,21 +398,25 @@ header.scrolled {
 
 .values-card {
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-normal);
-  border: 1px solid rgba(212, 175, 55, 0.1);
+  box-shadow: var(--shadow-gold);
+  border: 2px solid var(--gold);
+  background-color: rgba(0, 0, 0, 0.9);
   transition: var(--transition-normal);
-  position: relative;
+  position: absolute;
   z-index: 10;
   overflow: visible;
-  width: 100%;
-  height: auto;
+  width: auto;
+  max-width: 280px;
   display: block;
   margin-bottom: 10px;
+  backdrop-filter: blur(4px);
+  animation: glow 3s infinite alternate;
 }
 
 .values-card:hover {
-  box-shadow: var(--shadow-gold);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+  border: 2px solid rgba(212, 175, 55, 0.8);
+  transform: translateY(-5px);
 }
 
 /* Partner-Slideshow */
@@ -1314,4 +1318,23 @@ input:checked + .cookie-slider:before {
 #closeMenu:hover {
   color: var(--gold);
   transform: rotate(90deg);
+}
+
+/* Mobile Anpassungen für Badges und Indikatoren */
+@media (max-width: 768px) {
+  .performance-indicator, 
+  .dsg-speed-badge,
+  .values-card {
+    transform: scale(0.85);
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .performance-indicator, 
+  .dsg-speed-badge,
+  .values-card {
+    transform: scale(0.7);
+  }
 } 
