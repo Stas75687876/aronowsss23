@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Testimonial-Slider initialisieren
     initTestimonialSlider();
     
+    // Partner-Slideshow initialisieren
+    initPartnerSlideshow();
+    
     // Sprachschalter initialisieren
     initLanguageSwitch();
     
@@ -477,6 +480,69 @@ function initTestimonialSlider() {
         
         testimonialContainer.appendChild(testimonialWrapper);
     }
+}
+
+// Partner-Slideshow initialisieren
+function initPartnerSlideshow() {
+    console.log("Partner-Slideshow wird initialisiert");
+    
+    // DOM-Elemente auswählen
+    const slideshow = document.querySelector('.partner-slideshow');
+    if (!slideshow) return;
+    
+    const slides = slideshow.querySelector('.partner-slides');
+    const prevBtn = slideshow.querySelector('.partner-prev');
+    const nextBtn = slideshow.querySelector('.partner-next');
+    const dots = slideshow.querySelectorAll('.partner-dot');
+    
+    // Variablen für die Slideshow
+    let currentIndex = 0;
+    const slideCount = slideshow.querySelectorAll('.partner-slide').length;
+    
+    // Funktion zum Anzeigen eines bestimmten Slides
+    function goToSlide(index) {
+        // Sicherstellen, dass der Index gültig ist
+        if (index < 0) index = slideCount - 1;
+        if (index >= slideCount) index = 0;
+        
+        currentIndex = index;
+        
+        // Slides verschieben
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Aktiven Dot aktualisieren
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+    
+    // Event-Listener für Buttons
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            goToSlide(currentIndex - 1);
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            goToSlide(currentIndex + 1);
+        });
+    }
+    
+    // Event-Listener für Dots
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            goToSlide(i);
+        });
+    });
+    
+    // Auto-Rotation alle 5 Sekunden
+    setInterval(() => {
+        goToSlide(currentIndex + 1);
+    }, 5000);
+    
+    // Initiale Anzeige
+    goToSlide(0);
 }
 
 // Google Maps initialisieren (deaktiviert)
