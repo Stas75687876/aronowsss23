@@ -165,29 +165,35 @@ function initAnimations() {
     });
     
     // Animation für das Team-Bild
-    gsap.from('#ueber-uns .rounded-xl', {
-        scrollTrigger: {
-            trigger: '#ueber-uns .rounded-xl',
-            start: 'top 80%',
-        },
-        x: 100, // Horizontale Bewegung von rechts nach links
-        opacity: 0,
-        duration: 1,
-        ease: "power2.out"
-    });
-    
-    // Performance-Indikator mit etwas Verzögerung einblenden
-    gsap.from('#ueber-uns .performance-indicator', {
-        scrollTrigger: {
-            trigger: '#ueber-uns .performance-indicator',
-            start: 'top 80%',
-        },
-        x: 50,
-        opacity: 0,
-        duration: 0.8,
-        delay: 0.3,
-        ease: "back.out(1.7)"
-    });
+    const teamContainer = document.querySelector('#ueber-uns .relative');
+    if (teamContainer) {
+        gsap.from(teamContainer, {
+            scrollTrigger: {
+                trigger: teamContainer,
+                start: 'top 80%',
+            },
+            x: -50, // Wie bei den Service-Cards: von links nach rechts
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        });
+        
+        // Performance-Indikator ist bereits im Container und wird mit animiert
+        const badge = teamContainer.querySelector('.performance-indicator');
+        if (badge) {
+            gsap.from(badge, {
+                scrollTrigger: {
+                    trigger: badge,
+                    start: 'top 80%',
+                },
+                scale: 0.7,
+                opacity: 0,
+                delay: 0.2,
+                duration: 0.8,
+                ease: "back.out(1.7)"
+            });
+        }
+    }
     
     gsap.from('.image-frame', {
         scrollTrigger: {
