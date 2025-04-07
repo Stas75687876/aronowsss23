@@ -345,15 +345,11 @@ function initInteractions() {
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+            // Das Standardverhalten nicht mehr verhindern, damit das Formular an FormSubmit gesendet wird
+            // Stattdessen nur visuelle Rückmeldung geben und ggf. clientseitige Validierung durchführen
             
-            // Hier würde die Formularvalidierung und -versand implementiert
-            console.log('Formular abgeschickt');
-            
-            // Animation für erfolgreichen Versand simulieren
+            // Visuelle Animation des Buttons (wird vor dem Submit ausgeführt)
             const submitButton = contactForm.querySelector('button[type="submit"]');
-            submitButton.innerHTML = 'Nachricht gesendet!';
-            submitButton.style.backgroundColor = '#4CAF50';
             
             gsap.to(submitButton, {
                 scale: 1.05,
@@ -362,12 +358,11 @@ function initInteractions() {
                 repeat: 1
             });
             
-            // Formular zurücksetzen
-            setTimeout(() => {
-                contactForm.reset();
-                submitButton.innerHTML = 'Nachricht senden';
-                submitButton.style.backgroundColor = '';
-            }, 3000);
+            // Lokale Speicherung der Formularwerte für verbesserte UX falls nötig
+            localStorage.setItem('contactName', document.getElementById('name').value);
+            localStorage.setItem('contactEmail', document.getElementById('email').value);
+            
+            // Das Formular wird automatisch gesendet, da wir e.preventDefault() entfernt haben
         });
     }
 }

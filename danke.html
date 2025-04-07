@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vielen Dank für Ihre Nachricht | AB-Performance</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Flag Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"/>
+</head>
+<body>
+    <!-- Header/Navbar wird vom JavaScript dynamisch geladen -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="logo">
+                    <img src="images/ab-performance-logo.webp" alt="AB-Performance Logo" class="h-16">
+                </a>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <div class="nav-item">
+                        <a href="index.html" class="text-white hover:text-gold transition-colors">Home</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="index.html#ueber-uns" class="text-white hover:text-gold transition-colors">Über Uns</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="index.html#leistungen" class="text-white hover:text-gold transition-colors">Leistungen</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="index.html#projekte" class="text-white hover:text-gold transition-colors">Projekte</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="chipkonfigurator.html" class="text-white hover:text-gold transition-colors">Chipkonfigurator</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="index.html#kontakt" class="text-white hover:text-gold transition-colors">Kontakt</a>
+                    </div>
+                </nav>
+                
+                <button id="mobileMenuBtn" class="md:hidden text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menü -->
+    <div id="mobileMenu" class="md:hidden fixed inset-0 bg-black bg-opacity-95 z-50 translate-x-full transition-transform duration-300">
+        <div class="flex justify-end p-4">
+            <button id="closeMenu" class="text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div class="flex flex-col items-center space-y-6 py-8">
+            <a href="index.html" class="text-white text-xl hover:text-gold transition-colors">Home</a>
+            <a href="index.html#ueber-uns" class="text-white text-xl hover:text-gold transition-colors">Über Uns</a>
+            <a href="index.html#leistungen" class="text-white text-xl hover:text-gold transition-colors">Leistungen</a>
+            <a href="index.html#projekte" class="text-white text-xl hover:text-gold transition-colors">Projekte</a>
+            <a href="chipkonfigurator.html" class="text-white text-xl hover:text-gold transition-colors">Chipkonfigurator</a>
+            <a href="index.html#kontakt" class="text-white text-xl hover:text-gold transition-colors">Kontakt</a>
+        </div>
+    </div>
+
+    <!-- Danke Section -->
+    <section class="py-32 bg-darkgray min-h-screen flex items-center">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="mb-8 flex justify-center">
+                    <div class="bg-gold rounded-full p-6 inline-block animate-pulse">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                </div>
+                
+                <h1 class="section-title text-center mb-6 animate-fade-in">Vielen Dank <span class="text-gold">für Ihre Nachricht!</span></h1>
+                
+                <div class="bg-black bg-opacity-70 p-8 rounded-lg shadow-xl animate-fade-up">
+                    <p class="text-xl mb-6">Wir haben Ihre Anfrage erhalten und werden uns schnellstmöglich bei Ihnen melden.</p>
+                    
+                    <p class="mb-8 text-gray-300">Ihr Team von AB-Performance</p>
+                    
+                    <a href="index.html" class="btn-primary inline-flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        Zurück zur Startseite
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <div class="mb-6">
+                        <img src="images/ab-performance-logo.webp" alt="AB-Performance Logo" class="h-16">
+                    </div>
+                    <p class="text-gray-400 mb-4">AB-Performance ist Ihr Spezialist für professionelles Chiptuning, Soundoptimierungen und DSG-Optimierungen für VAG-Fahrzeuge in Kleve und Umgebung.</p>
+                    <p class="text-gray-400">© 2024 AB-Performance. Alle Rechte vorbehalten.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Schnelllinks</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#home" class="text-gray-400 hover:text-gold transition-colors">Home</a></li>
+                        <li><a href="index.html#ueber-uns" class="text-gray-400 hover:text-gold transition-colors">Über Uns</a></li>
+                        <li><a href="index.html#leistungen" class="text-gray-400 hover:text-gold transition-colors">Leistungen</a></li>
+                        <li><a href="index.html#projekte" class="text-gray-400 hover:text-gold transition-colors">Projekte</a></li>
+                        <li><a href="chipkonfigurator.html" class="text-gray-400 hover:text-gold transition-colors">Chipkonfigurator</a></li>
+                        <li><a href="index.html#kontakt" class="text-gray-400 hover:text-gold transition-colors">Kontakt</a></li>
+                    </ul>
+                    <div class="mt-6">
+                        <h4 class="text-xl font-bold mb-4">Sprache</h4>
+                        <div class="flex space-x-4">
+                            <button class="language-btn active flex items-center space-x-2 bg-white bg-opacity-10 hover:bg-gold hover:text-black transition-colors px-3 py-2 rounded-md" data-lang="de">
+                                <span class="fi fi-de"></span>
+                                <span>Deutsch</span>
+                            </button>
+                            <button class="language-btn flex items-center space-x-2 bg-white bg-opacity-10 hover:bg-gold hover:text-black transition-colors px-3 py-2 rounded-md" data-lang="en">
+                                <span class="fi fi-gb"></span>
+                                <span>English</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-gray-800">
+                        <div class="flex space-x-4">
+                            <a href="datenschutz.html" class="text-gray-400 hover:text-gold transition-colors">Datenschutz</a>
+                            <a href="impressum.html" class="text-gray-400 hover:text-gold transition-colors">Impressum</a>
+                            <a href="agb.html" class="text-gray-400 hover:text-gold transition-colors">AGB</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-gold p-2 rounded-full shadow-lg z-50 transition-all duration-300 opacity-0 invisible">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <!-- GSAP für Animationen -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    
+    <!-- Hauptskript -->
+    <script src="main.js"></script>
+</body>
+</html> 
