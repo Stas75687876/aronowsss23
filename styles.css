@@ -415,6 +415,7 @@ header.scrolled {
   right: -25px;
   bottom: -20px;
   transform: translateX(0);
+  padding-left: 8px;
 }
 
 .values-card:hover {
@@ -1351,6 +1352,7 @@ input:checked + .cookie-slider:before {
     transform: scale(0.9) translateX(0);
     right: -12px;
     bottom: -12px;
+    padding-left: 6px;
   }
 }
 
@@ -1368,5 +1370,6 @@ input:checked + .cookie-slider:before {
     right: -8px;
     bottom: -8px;
     position: absolute;
+    padding-left: 5px;
   }
 } 
