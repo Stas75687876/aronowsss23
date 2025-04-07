@@ -1015,12 +1015,14 @@ header.scrolled {
 }
 
 @media (max-width: 480px) {
-  .performance-indicator {
+  .performance-indicator, 
+  .dsg-speed-badge {
     position: absolute;
     transform: scale(0.75);
     padding: 0.5rem;
     border-width: 1.5px;
     right: 0;
+    z-index: 20;
   }
   
   .performance-indicator {
@@ -1037,6 +1039,11 @@ header.scrolled {
     min-width: 160px;
     transform: translateY(-5px);
     margin-top: 5px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    right: auto;
+    bottom: auto;
   }
 }
 
@@ -1310,6 +1317,18 @@ input:checked + .cookie-slider:before {
   }
 }
 
+/* Mobile Anpassungen für abgerundete Bilder */
+@media (max-width: 768px) {
+    .sound-wave {
+        bottom: -10px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Bereits definierte Styles für performance-indicator und values-card */
+}
+
 /* Premium Schatten für abgerundete Bilder */
 .shadow-premium {
     box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.8), 
@@ -1327,26 +1346,6 @@ input:checked + .cookie-slider:before {
 
 .shadow-gold {
     box-shadow: 0 6px 16px rgba(255, 215, 0, 0.4);
-}
-
-/* Mobile Anpassungen für abgerundete Bilder */
-@media (max-width: 768px) {
-    .performance-indicator, 
-    .dsg-speed-badge {
-        transform: scale(0.85);
-    }
-    
-    .sound-wave {
-        bottom: -10px;
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .performance-indicator, 
-    .dsg-speed-badge {
-        transform: scale(0.7);
-    }
 }
 
 /* =========== MOBILE MENU =========== */
@@ -1456,4 +1455,6 @@ input:checked + .cookie-slider:before {
     transform: translateY(-5px);
     margin-top: 5px;
   }
-} 
+}
+
+/* Hier endet die CSS-Datei */ 
