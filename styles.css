@@ -590,6 +590,15 @@ header.scrolled {
 
 .performance-indicator {
   animation: glow 3s infinite alternate;
+  position: absolute;
+  z-index: 10;
+  right: -15px;
+  top: -15px;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
 @keyframes glow {
@@ -969,9 +978,26 @@ header.scrolled {
   }
   
   .performance-indicator {
-    position: static;
-    margin: 1rem auto;
-    transform: none;
+    position: absolute;
+    transform: scale(0.85);
+    right: 5px;
+    top: 5px;
+    z-index: 20;
+  }
+  
+  .dsg-speed-badge {
+    top: auto;
+    bottom: 5px;
+  }
+  
+  .values-card {
+    position: relative;
+    max-width: 180px;
+    min-width: 170px;
+    margin: 0 auto;
+    transform: translateY(-10px);
+    right: auto;
+    bottom: auto;
   }
   
   .legal-content {
@@ -985,6 +1011,32 @@ header.scrolled {
     margin-left: auto;
     margin-right: auto;
     width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .performance-indicator {
+    position: absolute;
+    transform: scale(0.75);
+    padding: 0.5rem;
+    border-width: 1.5px;
+    right: 0;
+  }
+  
+  .performance-indicator {
+    top: 0;
+  }
+  
+  .dsg-speed-badge {
+    top: auto;
+    bottom: 0;
+  }
+  
+  .values-card {
+    max-width: 170px;
+    min-width: 160px;
+    transform: translateY(-5px);
+    margin-top: 5px;
   }
 }
 
@@ -1355,17 +1407,26 @@ input:checked + .cookie-slider:before {
   .performance-indicator, 
   .dsg-speed-badge,
   .values-card {
+    position: absolute;
     transform: scale(0.85);
-    right: 0;
-    bottom: 0;
+    right: 5px;
+    top: 5px;
+    z-index: 20;
+  }
+  
+  .dsg-speed-badge {
+    top: auto;
+    bottom: 5px;
   }
   
   .values-card {
+    position: relative;
     max-width: 180px;
     min-width: 170px;
-    transform: scale(0.9) translateX(0);
-    right: -12px;
-    bottom: -12px;
+    margin: 0 auto;
+    transform: translateY(-10px);
+    right: auto;
+    bottom: auto;
   }
 }
 
@@ -1373,15 +1434,26 @@ input:checked + .cookie-slider:before {
   .performance-indicator, 
   .dsg-speed-badge,
   .values-card {
-    transform: scale(0.7);
+    position: absolute;
+    transform: scale(0.75);
+    padding: 0.5rem;
+    border-width: 1.5px;
+    right: 0;
+  }
+  
+  .performance-indicator {
+    top: 0;
+  }
+  
+  .dsg-speed-badge {
+    top: auto;
+    bottom: 0;
   }
   
   .values-card {
     max-width: 170px;
     min-width: 160px;
-    transform: scale(0.85) translateX(0);
-    right: -8px;
-    bottom: -8px;
-    position: absolute;
+    transform: translateY(-5px);
+    margin-top: 5px;
   }
 } 
