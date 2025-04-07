@@ -397,34 +397,30 @@ header.scrolled {
 }
 
 .values-card {
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background-color: rgba(0, 0, 0, 0.85);
-  transition: var(--transition-normal);
   position: absolute;
-  z-index: 10;
-  overflow: visible;
-  width: auto;
-  max-width: 210px;
-  min-width: 200px;
-  display: block;
-  margin-bottom: 10px;
-  backdrop-filter: blur(4px);
-  animation: whiteGlow 3s infinite alternate;
   right: -25px;
   bottom: -20px;
-  transform: translateX(0);
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  overflow: visible;
+  min-width: 200px;
+  max-width: 210px;
+  z-index: 10;
+  transform: none;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0;
+  animation: fadeInUp 1s ease-in-out, whiteGlow 2s infinite alternate;
 }
 
 .values-card:hover {
+  border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 @keyframes whiteGlow {
