@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
         preloader.style.display = 'none';
     }
     
+    // Header-Bild-Animation (dunkel zu hell)
+    animateHeaderImage();
+    
     // GSAP Animationen initialisieren
     initAnimations();
     
@@ -32,6 +35,34 @@ document.addEventListener('DOMContentLoaded', () => {
     // Google Maps initialisieren (deaktiviert)
     window.initMap = initMap;
 });
+
+// Header-Bild-Animation (dunkel zu hell)
+function animateHeaderImage() {
+    const headerImg = document.querySelector('#home img');
+    const overlay = document.querySelector('#home div[style*="background-color: rgba(0,0,0,0.5)"]');
+    
+    if (headerImg && overlay) {
+        // Bild initial dunkler machen
+        gsap.set(headerImg, { filter: 'brightness(0.3)' });
+        gsap.set(overlay, { backgroundColor: 'rgba(0,0,0,0.8)' });
+        
+        // Animation, die das Bild heller werden lässt
+        gsap.to(headerImg, {
+            filter: 'brightness(1)',
+            duration: 2.5,
+            ease: "power2.out",
+            delay: 0.5
+        });
+        
+        // Overlay gleichzeitig transparenter machen
+        gsap.to(overlay, {
+            backgroundColor: 'rgba(0,0,0,0.5)',
+            duration: 2.5,
+            ease: "power2.out",
+            delay: 0.5
+        });
+    }
+}
 
 // Verbesserte Header-Animationen
 function animateHeader() {
@@ -131,6 +162,32 @@ function initAnimations() {
         opacity: 0,
         duration: 0.8,
         stagger: 0.2
+    });
+    
+    // Animation für das Team-Bild
+    gsap.from('#ueber-uns .rounded-xl', {
+        scrollTrigger: {
+            trigger: '#ueber-uns .rounded-xl',
+            start: 'top 80%',
+        },
+        scale: 0.9,
+        opacity: 0,
+        y: 50,
+        duration: 1.2,
+        ease: "power3.out"
+    });
+    
+    // Animation für den Performance-Indikator
+    gsap.from('#ueber-uns .performance-indicator', {
+        scrollTrigger: {
+            trigger: '#ueber-uns .performance-indicator',
+            start: 'top 80%',
+        },
+        scale: 0.5,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.3,
+        ease: "back.out(1.7)"
     });
     
     gsap.from('.image-frame', {
