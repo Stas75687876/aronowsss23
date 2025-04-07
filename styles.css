@@ -388,6 +388,9 @@ header.scrolled {
   box-shadow: var(--shadow-normal);
   transition: var(--transition-normal);
   border: 1px solid rgba(212, 175, 55, 0.1);
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .image-frame:hover {
@@ -398,26 +401,28 @@ header.scrolled {
 
 .values-card-container {
   position: absolute;
-  right: -25px;
-  bottom: -20px;
+  right: -15px;
+  bottom: -15px;
   z-index: 20;
-  width: auto;
+  width: 210px;
   pointer-events: auto;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .values-card {
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 0.75rem;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
   overflow: visible;
-  min-width: 200px;
-  max-width: 210px;
-  width: auto;
+  width: 100%;
   height: auto;
   display: block;
   margin: 0;
+  padding: 16px;
   animation: whiteGlow 2s infinite alternate;
   transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
   opacity: 1 !important;
@@ -425,8 +430,8 @@ header.scrolled {
 }
 
 .values-card:hover {
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
   transform: translateY(-2px);
 }
 
@@ -952,19 +957,20 @@ header.scrolled {
   }
   
   .values-card-container {
-    right: -12px;
-    bottom: -12px;
+    right: -10px;
+    bottom: -10px;
+    width: 180px;
   }
   
   .values-card {
-    min-width: 170px;
-    max-width: 180px;
+    padding: 12px;
   }
   
-  .performance-indicator {
-    position: static;
-    margin: 1rem auto;
-    transform: none;
+  .performance-indicator, 
+  .dsg-speed-badge, 
+  .exhaust-badge,
+  .tuning-stage-badge {
+    transform: scale(0.9);
   }
   
   .legal-content {
@@ -978,6 +984,25 @@ header.scrolled {
     margin-left: auto;
     margin-right: auto;
     width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .performance-indicator, 
+  .dsg-speed-badge,
+  .exhaust-badge,
+  .tuning-stage-badge {
+    transform: scale(0.8);
+  }
+  
+  .values-card-container {
+    right: -7px;
+    bottom: -7px;
+    width: 160px;
+  }
+  
+  .values-card {
+    padding: 10px;
   }
 }
 
