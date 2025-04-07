@@ -90,42 +90,42 @@ app.get('/api/projects', (req, res) => {
       id: 1,
       title: 'Audi RS6 Leistungssteigerung',
       category: 'audi',
-      image: 'images/projects/project1.jpg',
+      image: 'images/projects/project1.webp',
       description: 'Leistungssteigerung von 600 auf 780 PS'
     },
     {
       id: 2,
       title: 'BMW M4 Competition',
       category: 'bmw',
-      image: 'images/projects/project2.jpg',
+      image: 'images/projects/project2.webp',
       description: 'Komplettumbau mit 630 PS'
     },
     {
       id: 3,
       title: 'Mercedes-AMG A45S',
       category: 'mercedes',
-      image: 'images/projects/project3.jpg',
+      image: 'images/projects/project3.webp',
       description: 'Pop & Bang Konfiguration mit 500 PS'
     },
     {
       id: 4,
       title: 'VW Golf 8 R',
       category: 'vw',
-      image: 'images/projects/project4.jpg',
+      image: 'images/projects/project4.webp',
       description: 'Leistungssteigerung und DSG-Optimierung'
     },
     {
       id: 5,
       title: 'Audi RS3 Soundoptimierung',
       category: 'audi',
-      image: 'images/projects/project5.jpg',
+      image: 'images/projects/project5.webp',
       description: 'Klappenabgasanlage mit Pop & Bang'
     },
     {
       id: 6,
       title: 'BMW M5 Competition',
       category: 'bmw',
-      image: 'images/projects/project6.jpg',
+      image: 'images/projects/project6.webp',
       description: 'Leistungssteigerung auf 800 PS'
     }
   ];

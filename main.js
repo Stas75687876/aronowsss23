@@ -390,17 +390,17 @@ function initProjectGallery() {
             {
                 title: 'Chiptuning Projekt',
                 description: 'Leistungssteigerung & Optimierung',
-                imagePath: 'images/projekte/chiptuning-projekt.jpg'
+                imagePath: 'images/projekte/chiptuning-projekt.webp'
             },
             {
                 title: 'Soundoptimierung',
                 description: 'Pop & Bang Konfiguration',
-                imagePath: 'images/projekte/soundoptimierung-projekt.jpg'
+                imagePath: 'images/projekte/soundoptimierung-projekt.webp'
             },
             {
                 title: 'DSG-Tuning',
                 description: 'Schaltoptimierung & Launch Control',
-                imagePath: 'images/projekte/dsg-tuning-projekt.jpg'
+                imagePath: 'images/projekte/dsg-tuning-projekt.webp'
             }
         ];
         
