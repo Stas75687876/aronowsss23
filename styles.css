@@ -407,12 +407,14 @@ header.scrolled {
   overflow: visible;
   width: auto;
   max-width: 210px;
+  min-width: 200px;
   display: block;
   margin-bottom: 10px;
   backdrop-filter: blur(4px);
   animation: whiteGlow 3s infinite alternate;
   right: -25px;
   bottom: -20px;
+  transform: translateX(0);
 }
 
 .values-card:hover {
@@ -1345,7 +1347,8 @@ input:checked + .cookie-slider:before {
   
   .values-card {
     max-width: 180px;
-    transform: scale(0.9);
+    min-width: 170px;
+    transform: scale(0.9) translateX(0);
     right: -12px;
     bottom: -12px;
   }
@@ -1360,7 +1363,8 @@ input:checked + .cookie-slider:before {
   
   .values-card {
     max-width: 170px;
-    transform: scale(0.85);
+    min-width: 160px;
+    transform: scale(0.85) translateX(0);
     right: -8px;
     bottom: -8px;
     position: absolute;
