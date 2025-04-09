@@ -1,0 +1,11 @@
+Diese Datei ist ein Platzhalter für Playfair Display-Schriftarten.
+Die folgenden Dateien werden benötigt:
+
+- playfair-display-v36-latin-regular.woff2
+- playfair-display-v36-latin-regular.woff
+- playfair-display-v36-latin-500.woff2
+- playfair-display-v36-latin-500.woff
+- playfair-display-v36-latin-700.woff2
+- playfair-display-v36-latin-700.woff
+
+Diese Dateien müssen manuell von Google Webfonts Helper heruntergeladen werden. 

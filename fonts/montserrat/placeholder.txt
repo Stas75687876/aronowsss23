@@ -1,0 +1,15 @@
+Diese Datei ist ein Platzhalter für Montserrat-Schriftarten.
+Die folgenden Dateien werden benötigt:
+
+- montserrat-v25-latin-300.woff2
+- montserrat-v25-latin-300.woff
+- montserrat-v25-latin-regular.woff2
+- montserrat-v25-latin-regular.woff
+- montserrat-v25-latin-500.woff2
+- montserrat-v25-latin-500.woff
+- montserrat-v25-latin-600.woff2
+- montserrat-v25-latin-600.woff
+- montserrat-v25-latin-700.woff2
+- montserrat-v25-latin-700.woff
+
+Diese Dateien müssen manuell von Google Webfonts Helper heruntergeladen werden. 
