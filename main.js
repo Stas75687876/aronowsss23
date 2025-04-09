@@ -483,61 +483,118 @@ function initPartnerSlideshow() {
     
     // DOM-Elemente auswählen
     const slideshow = document.querySelector('.partner-slideshow');
-    if (!slideshow) return;
+    if (!slideshow) {
+        console.warn("Partner-Slideshow-Container nicht gefunden");
+        return;
+    }
     
     const slides = slideshow.querySelector('.partner-slides');
+    if (!slides) {
+        console.warn("Partner-Slides-Container nicht gefunden");
+        return;
+    }
+    
     const prevBtn = slideshow.querySelector('.partner-prev');
     const nextBtn = slideshow.querySelector('.partner-next');
     const dots = slideshow.querySelectorAll('.partner-dot');
     
+    // Überprüfen, ob die Navigations-Elemente vorhanden sind
+    if (!prevBtn || !nextBtn) {
+        console.warn("Partner-Slideshow Navigationsbuttons fehlen");
+    }
+    
+    if (dots.length === 0) {
+        console.warn("Partner-Slideshow Dots fehlen");
+    }
+    
     // Variablen für die Slideshow
     let currentIndex = 0;
-    const slideCount = slideshow.querySelectorAll('.partner-slide').length;
+    const slideElements = slideshow.querySelectorAll('.partner-slide');
+    const slideCount = slideElements.length;
+    
+    if (slideCount === 0) {
+        console.warn("Keine Slides in der Partner-Slideshow gefunden");
+        return;
+    }
+    
+    console.log(`Partner-Slideshow: ${slideCount} Slides gefunden`);
     
     // Funktion zum Anzeigen eines bestimmten Slides
     function goToSlide(index) {
-        // Sicherstellen, dass der Index gültig ist
-        if (index < 0) index = slideCount - 1;
-        if (index >= slideCount) index = 0;
-        
-        currentIndex = index;
-        
-        // Slides verschieben
-        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-        
-        // Aktiven Dot aktualisieren
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentIndex);
-        });
+        try {
+            // Sicherstellen, dass der Index gültig ist
+            if (index < 0) index = slideCount - 1;
+            if (index >= slideCount) index = 0;
+            
+            currentIndex = index;
+            
+            // Slides verschieben
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Aktiven Dot aktualisieren
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+            
+            console.log(`Partner-Slideshow: Wechsel zu Slide ${currentIndex + 1}/${slideCount}`);
+        } catch (error) {
+            console.error("Fehler beim Wechseln der Slides:", error);
+        }
     }
     
     // Event-Listener für Buttons
     if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             goToSlide(currentIndex - 1);
         });
     }
     
     if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             goToSlide(currentIndex + 1);
         });
     }
     
     // Event-Listener für Dots
     dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
+        dot.addEventListener('click', (e) => {
+            e.preventDefault();
             goToSlide(i);
         });
     });
     
+    // Manuelle Initialisierung der Dot-Klicks, falls Standard-Event-Listener nicht funktionieren
+    dots.forEach((dot, i) => {
+        dot.onclick = function(e) {
+            e.preventDefault();
+            goToSlide(i);
+            return false;
+        };
+    });
+    
     // Auto-Rotation alle 5 Sekunden
-    setInterval(() => {
+    let autoRotateInterval = setInterval(() => {
         goToSlide(currentIndex + 1);
     }, 5000);
     
+    // Stoppe Auto-Rotation bei Maus-Hover
+    slideshow.addEventListener('mouseenter', () => {
+        clearInterval(autoRotateInterval);
+    });
+    
+    // Starte Auto-Rotation erneut, wenn Maus das Element verlässt
+    slideshow.addEventListener('mouseleave', () => {
+        autoRotateInterval = setInterval(() => {
+            goToSlide(currentIndex + 1);
+        }, 5000);
+    });
+    
     // Initiale Anzeige
     goToSlide(0);
+    
+    console.log("Partner-Slideshow erfolgreich initialisiert");
 }
 
 // Google Maps initialisieren (deaktiviert)
