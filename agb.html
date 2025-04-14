@@ -70,15 +70,45 @@
                 <h1 class="section-title text-center mb-12">Unsere <span class="text-gold">AGB</span></h1>
                 
                 <div class="legal-content bg-opacity-50 p-6 rounded-lg shadow-inner">
-                    <div class="text-center text-gray-400 mb-8">
-                        <p class="mb-4">Die allgemeinen Geschäftsbedingungen werden in Kürze hier veröffentlicht.</p>
-                        <p>Bei Fragen zu unseren AGB kontaktieren Sie uns bitte direkt:</p>
-                        <p class="mt-4">
-                            <a href="mailto:info@ab-performance.rocks" class="text-gold hover:underline">info@ab-performance.rocks</a>
-                        </p>
-                        <p class="mt-4">
-                            <a href="tel:+4928211234567" class="text-gold hover:underline">+49 2821 123456</a>
-                        </p>
+                    <div class="text-white animate-fade-in">
+                        <h2 class="text-2xl font-bold mb-6 text-gold">Allgemeine Geschäftsbedingungen (AGB) für AB-Performance (Andre Blenkers)</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-black bg-opacity-70 p-6 rounded-lg hover:shadow-gold transition-all duration-300 transform hover:-translate-y-1">
+                                <h3 class="text-xl font-bold mb-3 text-gold">1. Geltungsbereich</h3>
+                                <p>Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge, die zwischen AB-Performance (im Folgenden "Anbieter") und dem Kunden (im Folgenden "Kunde") über die Erbringung von Chiptuning-Dienstleistungen abgeschlossen werden.</p>
+                            </div>
+                            
+                            <div class="bg-black bg-opacity-70 p-6 rounded-lg hover:shadow-gold transition-all duration-300 transform hover:-translate-y-1">
+                                <h3 class="text-xl font-bold mb-3 text-gold">2. Vertragsabschluss</h3>
+                                <p>Der Vertrag kommt durch die Annahme des Angebots des Anbieters durch den Kunden zustande. Der Anbieter behält sich das Recht vor, Angebote ohne Angabe von Gründen abzulehnen.</p>
+                            </div>
+                            
+                            <div class="bg-black bg-opacity-70 p-6 rounded-lg hover:shadow-gold transition-all duration-300 transform hover:-translate-y-1">
+                                <h3 class="text-xl font-bold mb-3 text-gold">3. Leistungsbeschreibung</h3>
+                                <p>Der Anbieter bietet individuelle Chiptuning-Dienstleistungen an, die auf die spezifischen Anforderungen des Fahrzeugs des Kunden abgestimmt sind. Die genauen Leistungen werden im Angebot beschrieben.</p>
+                            </div>
+                            
+                            <div class="bg-black bg-opacity-70 p-6 rounded-lg hover:shadow-gold transition-all duration-300 transform hover:-translate-y-1">
+                                <h3 class="text-xl font-bold mb-3 text-gold">4. Widerrufsrecht</h3>
+                                <p>Das Widerrufsrecht des Kunden erlischt, sobald der Anbieter mit der Ausführung der Dienstleistung begonnen hat, da es sich um eine individuelle Leistung handelt, die nicht vorgefertigt ist und die auf die persönlichen Bedürfnisse des Kunden zugeschnitten ist.</p>
+                            </div>
+                            
+                            <div class="bg-black bg-opacity-70 p-6 rounded-lg hover:shadow-gold transition-all duration-300 transform hover:-translate-y-1">
+                                <h3 class="text-xl font-bold mb-3 text-gold">5. Haftungsausschluss</h3>
+                                <p>Der Anbieter haftet nicht für Schäden, die durch die Nutzung der Chiptuning-Dienstleistungen entstehen, es sei denn, diese Schäden sind auf vorsätzliches oder grob fahrlässiges Verhalten des Anbieters zurückzuführen. Der Kunde ist verpflichtet, sich vor der Inanspruchnahme der Dienstleistung über die rechtlichen Rahmenbedingungen und die Auswirkungen des Chiptunings zu informieren.</p>
+                            </div>
+                            
+                            <div class="bg-black bg-opacity-70 p-6 rounded-lg hover:shadow-gold transition-all duration-300 transform hover:-translate-y-1">
+                                <h3 class="text-xl font-bold mb-3 text-gold">6. Zahlung</h3>
+                                <p>Die Zahlung erfolgt gemäß den im Angebot festgelegten Bedingungen. Der Kunde verpflichtet sich, den vereinbarten Preis nach Erbringung der Dienstleistung zu zahlen.</p>
+                            </div>
+                            
+                            <div class="bg-black bg-opacity-70 p-6 rounded-lg hover:shadow-gold transition-all duration-300 transform hover:-translate-y-1">
+                                <h3 class="text-xl font-bold mb-3 text-gold">7. Schlussbestimmungen</h3>
+                                <p>Es gilt das Recht der Deutschland / Nordrhein Westfalen. Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -121,8 +151,8 @@ Beginnenkamp 40
     </footer>
 
     <script>
-        // Mobile Menu Functionality
         document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Functionality
             const menuToggle = document.getElementById('menuToggle');
             const closeMenu = document.getElementById('closeMenu');
             const mobileMenu = document.getElementById('mobileMenu');
@@ -147,6 +177,63 @@ Beginnenkamp 40
                 } else {
                     header.classList.remove('scrolled');
                 }
+            });
+            
+            // GSAP Animationen für die AGBs
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Titel-Animation
+            gsap.from('.section-title', {
+                duration: 1.2,
+                y: -50,
+                opacity: 0,
+                ease: 'power3.out'
+            });
+            
+            // Abschnitts-Animationen
+            gsap.from('.legal-content h2', {
+                scrollTrigger: {
+                    trigger: '.legal-content',
+                    start: 'top 80%'
+                },
+                duration: 0.8,
+                y: 30,
+                opacity: 0,
+                delay: 0.2,
+                ease: 'power2.out'
+            });
+            
+            // Einzelne AGB-Abschnitte animieren
+            const agbSections = document.querySelectorAll('.legal-content .space-y-6 > div');
+            gsap.from(agbSections, {
+                scrollTrigger: {
+                    trigger: '.legal-content',
+                    start: 'top 70%'
+                },
+                duration: 0.6,
+                y: 40,
+                opacity: 0,
+                stagger: 0.15,
+                ease: 'power2.out'
+            });
+            
+            // Hover-Effekt für AGB-Abschnitte verbessern
+            agbSections.forEach(section => {
+                section.addEventListener('mouseenter', () => {
+                    gsap.to(section, {
+                        backgroundColor: 'rgba(20, 20, 20, 0.9)',
+                        boxShadow: '0 0 15px rgba(212, 175, 55, 0.7)',
+                        duration: 0.3
+                    });
+                });
+                
+                section.addEventListener('mouseleave', () => {
+                    gsap.to(section, {
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        boxShadow: 'none',
+                        duration: 0.3
+                    });
+                });
             });
         });
     </script>
