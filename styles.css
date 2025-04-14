@@ -459,6 +459,8 @@ header.scrolled {
   .partner-slide img {
     max-height: 180px;
     max-width: 90%;
+    margin: 0 auto;
+    display: block;
   }
 }
 
@@ -479,6 +481,7 @@ header.scrolled {
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  text-align: center;
 }
 
 .partner-slide img {
@@ -488,6 +491,8 @@ header.scrolled {
   object-fit: contain;
   filter: brightness(1.05);
   transition: all 0.3s ease;
+  margin: 0 auto;
+  display: block;
 }
 
 .partner-prev, .partner-next {
