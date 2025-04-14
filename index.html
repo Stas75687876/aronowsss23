@@ -86,7 +86,7 @@
     <header class="fixed top-0 left-0 w-full z-40 transition-all duration-500">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#" class="logo">
-                <img src="images/ab-performance-logo.webp" alt="AB-Performance Logo" class="h-16">
+                <img src="images/ab-performance-logo.webp" alt="AB-Performance Logo" class="h-16 md:h-20 lg:h-24">
             </a>
             <nav class="hidden lg:flex">
                 <ul class="flex space-x-8">
@@ -179,47 +179,56 @@
                             </div>
                             <p data-lang-key="about-history-3">Umwandlung der GbR in eine Einzelfirma und Änderung des Firmennamens in AB-Performance</p>
                         </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <span class="text-gold font-bold">2025</span>
+                            </div>
+                            <p data-lang-key="about-history-4">AB-Performance Umzug in größere Räumlichkeit zum Schwänchen 28, 47533 Kleve</p>
+                        </div>
                     </div>
                     <p class="mt-6 mb-6" data-lang-key="about-goal">Unser Ziel ist es, die Leistung und Fahrbarkeit Ihres Fahrzeugs auf ein neues Niveau zu bringen. Mit maßgeschneiderten Lösungen und modernster Technologie bieten wir Ihnen ein Tuningerlebnis, das Ihre Erwartungen übertrifft.</p>
                     <h3 class="text-2xl font-bold mb-4" data-lang-key="about-partners-title">Unsere Partner</h3>
                     <p class="mb-4" data-lang-key="about-partners-text">Wir setzen auf qualitativ hochwertige Marken in unserem Haus. Inzwischen sind wir Stützpunkthändler & Partner für einige Hersteller geworden:</p>
                     
-                    <div class="partner-slideshow">
-                        <div class="partner-slides">
-                            <div class="partner-slide">
-                                <img src="images/partners/null-bar-logo.webp" alt="Null-Bar Logo">
+                    <div class="partner-slideshow rounded-xl shadow-lg overflow-hidden bg-black p-4 border border-gray-800">
+                        <div class="partner-slides h-24 relative">
+                            <div class="partner-slide absolute inset-0 w-full h-full" style="text-align: center;">
+                                <img src="images/partners/null-bar-logo.webp" alt="Null-Bar Logo" class="max-h-20 max-w-[80%] object-contain" style="margin: 0 auto; display: block; position: relative; top: 50%; transform: translateY(-50%);">
                             </div>
-                            <div class="partner-slide">
-                                <img src="images/partners/service-center-lueb-logo.webp" alt="Service Center Lueb Logo">
+                            <div class="partner-slide absolute inset-0 w-full h-full" style="text-align: center;">
+                                <img src="images/partners/service-center-lueb-logo.webp" alt="Service Center Lueb Logo" class="max-h-20 max-w-[80%] object-contain" style="margin: 0 auto; display: block; position: relative; top: 50%; transform: translateY(-50%);">
                             </div>
-                            <div class="partner-slide">
-                                <img src="images/partners/turbo-performance-logo.webp" alt="Turbo Performance Logo">
+                            <div class="partner-slide absolute inset-0 w-full h-full" style="text-align: center;">
+                                <img src="images/partners/turbo-performance-logo.webp" alt="Turbo Performance Logo" class="max-h-20 max-w-[80%] object-contain" style="margin: 0 auto; display: block; position: relative; top: 50%; transform: translateY(-50%);">
                             </div>
-                            <div class="partner-slide">
-                                <img src="images/partners/milltek-sport-logo.webp" alt="Milltek Sport Logo">
+                            <div class="partner-slide absolute inset-0 w-full h-full" style="text-align: center;">
+                                <img src="images/partners/milltek-sport-logo.webp" alt="Milltek Sport Logo" class="max-h-20 max-w-[80%] object-contain" style="margin: 0 auto; display: block; position: relative; top: 50%; transform: translateY(-50%);">
                             </div>
-                            <div class="partner-slide">
-                                <img src="images/partners/scorpion-red-power-logo.webp" alt="Scorpion Red Power Logo">
+                            <div class="partner-slide absolute inset-0 w-full h-full" style="text-align: center;">
+                                <img src="images/partners/scorpion-red-power-logo.webp" alt="Scorpion Red Power Logo" class="max-h-20 max-w-[80%] object-contain" style="margin: 0 auto; display: block; position: relative; top: 50%; transform: translateY(-50%);">
                             </div>
                         </div>
                         
-                        <button class="partner-prev">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                            </svg>
-                        </button>
-                        <button class="partner-next">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </button>
-                        
-                        <div class="partner-dots">
-                            <span class="partner-dot active" data-index="0"></span>
-                            <span class="partner-dot" data-index="1"></span>
-                            <span class="partner-dot" data-index="2"></span>
-                            <span class="partner-dot" data-index="3"></span>
-                            <span class="partner-dot" data-index="4"></span>
+                        <div class="flex items-center justify-between mt-4">
+                            <button class="partner-prev bg-black hover:bg-gray-800 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-gold">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            
+                            <div class="partner-dots flex space-x-2 justify-center">
+                                <span class="partner-dot active" data-index="0"></span>
+                                <span class="partner-dot" data-index="1"></span>
+                                <span class="partner-dot" data-index="2"></span>
+                                <span class="partner-dot" data-index="3"></span>
+                                <span class="partner-dot" data-index="4"></span>
+                            </div>
+                            
+                            <button class="partner-next bg-black hover:bg-gray-800 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-gold">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -320,16 +329,10 @@
                                 <span data-lang-key="service-sound-feature-3">Kompatibel mit Klappenabgasanlagen für maximalen Effekt</span>
                             </li>
                         </ul>
-                        <div class="flex space-x-4 mb-6">
-                            <button class="play-sound-btn flex items-center bg-gold text-black px-4 py-2 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span data-lang-key="service-sound-listen">Sound anhören</span>
-                            </button>
+                        <div class="mb-6">
                             <a href="#kontakt" class="btn-primary" data-lang-key="btn-request">Beratung anfragen</a>
                         </div>
+                        <p class="text-xs text-gray-400 mt-2">* Wichtiger Hinweis zur StVZO: Bitte beachten Sie, dass die Schubabschaltung im Bereich der Straßenverkehrs-Zulassungs-Ordnung (StVZO) nicht zulässig ist.</p>
                     </div>
                 </div>
             </div>
@@ -514,7 +517,7 @@
                             </div>
                             <div>
                                 <h4 class="text-xl font-bold text-gold">WhatsApp</h4>
-                                <p class="text-gray-300 mt-2">+49 2821 123456</p>
+                                <p class="text-gray-300 mt-2">+49 2821 7749272</p>
                             </div>
                         </div>
                         <div class="flex items-start bg-black bg-opacity-50 p-4 rounded-lg transition-all duration-300 hover:bg-opacity-70 hover:shadow-xl">
@@ -568,7 +571,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
                     <div class="mb-6">
-                        <img src="images/ab-performance-logo.webp" alt="AB-Performance Logo" class="h-16">
+                        <img src="images/ab-performance-logo.webp" alt="AB-Performance Logo" class="h-16 md:h-20">
                     </div>
                     <p class="text-gray-400 mb-4">AB-Performance ist Ihr Spezialist für professionelles Chiptuning, Soundoptimierungen und DSG-Optimierungen für VAG-Fahrzeuge in Kleve und Umgebung.</p>
                     <p class="text-gray-400">© 2024 AB-Performance. Alle Rechte vorbehalten.</p>
@@ -583,19 +586,6 @@
                         <li><a href="chipkonfigurator.html" class="text-gray-400 hover:text-gold transition-colors">Chipkonfigurator</a></li>
                         <li><a href="#kontakt" class="text-gray-400 hover:text-gold transition-colors">Kontakt</a></li>
                     </ul>
-                    <div class="mt-6">
-                        <h4 class="text-xl font-bold mb-4" data-lang-key="footer-language">Sprache</h4>
-                        <div class="flex space-x-4">
-                            <button class="language-btn active flex items-center space-x-2 bg-white bg-opacity-10 hover:bg-gold hover:text-black transition-colors px-3 py-2 rounded-md" data-lang="de">
-                                <span class="fi fi-de"></span>
-                                <span>Deutsch</span>
-                            </button>
-                            <button class="language-btn flex items-center space-x-2 bg-white bg-opacity-10 hover:bg-gold hover:text-black transition-colors px-3 py-2 rounded-md" data-lang="en">
-                                <span class="fi fi-gb"></span>
-                                <span>English</span>
-                            </button>
-                        </div>
-                    </div>
                     <div class="mt-6 pt-6 border-t border-gray-800">
                         <div class="flex space-x-4">
                             <a href="datenschutz.html" class="text-gray-400 hover:text-gold transition-colors">Datenschutz</a>
