@@ -127,46 +127,58 @@ function initAnimations() {
         const header = document.querySelector('header');
         if (window.scrollY > 100) {
             header.classList.add('scrolled');
-            gsap.to(header, { 
-                backgroundColor: 'rgba(10, 10, 10, 0.95)', 
-                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4)', 
-                duration: 0.3 
+            gsap.to(header, {
+                backgroundColor: 'rgba(10, 10, 10, 0.95)',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4)',
+                duration: 0.3
             });
         } else {
             header.classList.remove('scrolled');
-            gsap.to(header, { 
-                backgroundColor: 'transparent', 
-                boxShadow: 'none', 
-                duration: 0.3 
+            gsap.to(header, {
+                backgroundColor: 'transparent',
+                boxShadow: 'none',
+                duration: 0.3
             });
         }
     });
 
     // ScrollTrigger für Sektionen initialisieren
     gsap.registerPlugin(ScrollTrigger);
-    
+
+    // Selektiver Ansatz: Nur Elemente unsichtbar machen, die wir animieren werden
+    // Vermeidung der Teambereich-Texte und Reduktion des Scopes
+    gsap.set('#ueber-uns .section-title, .values-card, .partner-logo', {
+        opacity: 0,
+        y: 30
+    });
+
+    // Separate Behandlung für Service Cards zur Vermeidung von Scrollbars
+    document.querySelectorAll('.service-card').forEach((card) => {
+        // Nicht den gesamten Card-Container unsichtbar machen, sondern nur bestimmte Elemente
+        const title = card.querySelector('h3');
+        const text = card.querySelectorAll('p');
+        const list = card.querySelectorAll('ul li');
+        
+        if (title) gsap.set(title, { opacity: 0, y: 20 });
+        if (text.length) gsap.set(text, { opacity: 0, y: 20 });
+        if (list.length) gsap.set(list, { opacity: 0, y: 20 });
+    });
+
     // Über Uns Sektion
     gsap.from('#ueber-uns .section-title', {
         scrollTrigger: {
             trigger: '#ueber-uns',
             start: 'top 80%',
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.8
-    });
-    
-    gsap.from('#ueber-uns p', {
-        scrollTrigger: {
-            trigger: '#ueber-uns',
-            start: 'top 70%',
+            toggleActions: 'play none none none',
+            markers: false
         },
         y: 30,
         opacity: 0,
         duration: 0.8,
-        stagger: 0.2
+        ease: "power2.out"
     });
-    
+
+    // Die Team-Texte nicht animieren, nur die Bilder
     // Animation für das Team-Bild
     const teamContainer = document.querySelector('#ueber-uns .relative');
     if (teamContainer) {
@@ -174,13 +186,14 @@ function initAnimations() {
             scrollTrigger: {
                 trigger: teamContainer,
                 start: 'top 80%',
+                toggleActions: 'play none none none'
             },
-            x: -50, // Wie bei den Service-Cards: von links nach rechts
+            x: -50,
             opacity: 0,
             duration: 1,
             ease: "power2.out"
         });
-        
+
         // Performance-Indikator ist bereits im Container und wird mit animiert
         const badge = teamContainer.querySelector('.performance-indicator');
         if (badge) {
@@ -188,6 +201,7 @@ function initAnimations() {
                 scrollTrigger: {
                     trigger: badge,
                     start: 'top 80%',
+                    toggleActions: 'play none none none'
                 },
                 scale: 0.7,
                 opacity: 0,
@@ -197,62 +211,145 @@ function initAnimations() {
             });
         }
     }
-    
+
     gsap.from('.image-frame', {
         scrollTrigger: {
             trigger: '.image-frame',
             start: 'top 80%',
+            toggleActions: 'play none none none'
         },
         scale: 0.9,
         opacity: 0,
         duration: 1,
         ease: "power2.out"
     });
-    
+
     gsap.from('.values-card', {
         scrollTrigger: {
             trigger: '.values-card',
             start: 'top 80%',
+            toggleActions: 'play none none none'
         },
         x: 50,
         opacity: 0,
         duration: 0.8,
         ease: "back.out(1.7)"
     });
-    
-    gsap.from('.partner-logo', {
-        scrollTrigger: {
-            trigger: '.partner-logo',
-            start: 'top 85%',
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "power2.out"
-    });
-    
-    // Leistungen Sektion
-    document.querySelectorAll('.service-card').forEach((card, index) => {
-        const direction = index % 2 === 0 ? -50 : 50;
+
+    // Partner-Logo Animation verbessert
+    const partnerSection = document.querySelector('.partner-container');
+    if (partnerSection) {
+        // Mache die Partner-Logos zunächst unsichtbar
+        gsap.set('.partner-logo', { opacity: 0, y: 30 });
         
+        // Animiere sie, wenn die Sektion wirklich sichtbar ist
+        gsap.from('.partner-logo', {
+            scrollTrigger: {
+                trigger: partnerSection,
+                start: 'top 75%',
+                toggleActions: 'play none none reset'
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out"
+        });
+    }
+
+    // Leistungen Sektion - Überarbeiteter Ansatz für Service Cards
+    document.querySelectorAll('.service-card').forEach((card, index) => {
+        const direction = index % 2 === 0 ? -1 : 1;
+        const title = card.querySelector('h3');
+        const paragraphs = card.querySelectorAll('p');
+        const listItems = card.querySelectorAll('ul li');
+        const buttons = card.querySelectorAll('.btn-primary, .btn-secondary');
+        
+        // Animiere die Titel
+        if (title) {
+            gsap.to(title, {
+                scrollTrigger: {
+                    trigger: title,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reset'
+                },
+                y: 0,
+                opacity: 1,
+                duration: 0.7,
+                ease: "power2.out"
+            });
+        }
+        
+        // Animiere die Textabsätze
+        if (paragraphs.length) {
+            gsap.to(paragraphs, {
+                scrollTrigger: {
+                    trigger: paragraphs[0],
+                    start: 'top 85%',
+                    toggleActions: 'play none none reset'
+                },
+                y: 0,
+                opacity: 1,
+                duration: 0.7,
+                stagger: 0.15,
+                ease: "power2.out"
+            });
+        }
+        
+        // Animiere die Listeneinträge
+        if (listItems.length) {
+            gsap.to(listItems, {
+                scrollTrigger: {
+                    trigger: listItems[0],
+                    start: 'top 85%',
+                    toggleActions: 'play none none reset'
+                },
+                y: 0,
+                opacity: 1,
+                duration: 0.5,
+                stagger: 0.1,
+                ease: "power2.out"
+            });
+        }
+        
+        // Animiere die Buttons
+        if (buttons.length) {
+            gsap.to(buttons, {
+                scrollTrigger: {
+                    trigger: buttons[0],
+                    start: 'top 90%',
+                    toggleActions: 'play none none reset'
+                },
+                y: 0,
+                opacity: 1,
+                duration: 0.5,
+                ease: "back.out(1.2)"
+            });
+        }
+    });
+
+    // Testimonial-Karten
+    document.querySelectorAll('.testimonial-card').forEach((card, index) => {
         gsap.from(card, {
             scrollTrigger: {
                 trigger: card,
-                start: 'top 80%',
+                start: 'top 85%',
+                toggleActions: 'play none none reset'
             },
-            x: direction,
+            y: 30,
             opacity: 0,
-            duration: 1,
-            ease: "power2.out"
+            duration: 0.7,
+            delay: index * 0.2,
+            ease: "back.out(1.2)"
         });
     });
-    
+
     // Projekte Sektion
     gsap.from('.project-filter button', {
         scrollTrigger: {
             trigger: '.project-filter',
             start: 'top 85%',
+            toggleActions: 'play none none reset'
         },
         y: 20,
         opacity: 0,
@@ -260,7 +357,23 @@ function initAnimations() {
         stagger: 0.1,
         ease: "power2.out"
     });
-    
+
+    // Projekt-Items
+    document.querySelectorAll('.project-item').forEach((item, index) => {
+        gsap.from(item, {
+            scrollTrigger: {
+                trigger: item,
+                start: 'top 85%',
+                toggleActions: 'play none none reset'
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            delay: index * 0.15,
+            ease: "power2.out"
+        });
+    });
+
     // Buttons pulsieren lassen
     gsap.to('.btn-primary, .btn-secondary', {
         boxShadow: '0 4px 15px rgba(212, 175, 55, 0.5)',
