@@ -477,124 +477,136 @@ function initTestimonialSlider() {
     }
 }
 
-// Partner-Slideshow initialisieren
+// Partner-Slideshow Funktionalität
 function initPartnerSlideshow() {
-    console.log("Partner-Slideshow wird initialisiert");
+    const partnerSlideshows = document.querySelectorAll('.partner-slideshow');
     
-    // DOM-Elemente auswählen
-    const slideshow = document.querySelector('.partner-slideshow');
-    if (!slideshow) {
-        console.warn("Partner-Slideshow-Container nicht gefunden");
-        return;
-    }
-    
-    const slides = slideshow.querySelector('.partner-slides');
-    if (!slides) {
-        console.warn("Partner-Slides-Container nicht gefunden");
-        return;
-    }
-    
-    const prevBtn = slideshow.querySelector('.partner-prev');
-    const nextBtn = slideshow.querySelector('.partner-next');
-    const dots = slideshow.querySelectorAll('.partner-dot');
-    
-    // Überprüfen, ob die Navigations-Elemente vorhanden sind
-    if (!prevBtn || !nextBtn) {
-        console.warn("Partner-Slideshow Navigationsbuttons fehlen");
-    }
-    
-    if (dots.length === 0) {
-        console.warn("Partner-Slideshow Dots fehlen");
-    }
-    
-    // Variablen für die Slideshow
-    let currentIndex = 0;
-    const slideElements = slideshow.querySelectorAll('.partner-slide');
-    const slideCount = slideElements.length;
-    
-    if (slideCount === 0) {
-        console.warn("Keine Slides in der Partner-Slideshow gefunden");
-        return;
-    }
-    
-    console.log(`Partner-Slideshow: ${slideCount} Slides gefunden`);
-    
-    // Funktion zum Anzeigen eines bestimmten Slides
-    function goToSlide(index) {
-        try {
-            // Sicherstellen, dass der Index gültig ist
-            if (index < 0) index = slideCount - 1;
-            if (index >= slideCount) index = 0;
-            
-            currentIndex = index;
-            
-            // Slides verschieben
-            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-            
-            // Aktiven Dot aktualisieren
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentIndex);
+    // Für jede Slideshow auf der Seite (könnte mehrere geben)
+    partnerSlideshows.forEach(slideshow => {
+        const partnerSlides = slideshow.querySelectorAll('.partner-slide');
+        const prevButton = slideshow.querySelector('.partner-prev');
+        const nextButton = slideshow.querySelector('.partner-next');
+        const dots = slideshow.querySelectorAll('.partner-dot');
+        
+        let currentSlide = 0;
+        let slideInterval;
+        
+        // Funktion zum Anzeigen eines bestimmten Slides
+        function showSlide(index) {
+            // Verstecke alle Slides
+            partnerSlides.forEach(slide => {
+                slide.style.display = 'none';
+                slide.classList.remove('active');
             });
             
-            console.log(`Partner-Slideshow: Wechsel zu Slide ${currentIndex + 1}/${slideCount}`);
-        } catch (error) {
-            console.error("Fehler beim Wechseln der Slides:", error);
+            // Entferne 'active' Klasse von allen Dots
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            // Zeige den aktuellen Slide und setze den entsprechenden Dot auf aktiv
+            if (partnerSlides[index]) {
+                partnerSlides[index].style.display = 'block';
+                partnerSlides[index].classList.add('active');
+                currentSlide = index;
+            }
+            
+            // Aktiviere den entsprechenden Dot
+            if (dots[index]) {
+                dots[index].classList.add('active');
+            }
         }
-    }
-    
-    // Event-Listener für Buttons
-    if (prevBtn) {
-        prevBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            goToSlide(currentIndex - 1);
+        
+        // Automatischer Slideshow-Wechsel
+        function startAutoSlide() {
+            stopAutoSlide(); // Vorher stoppen, um doppelte Intervalle zu vermeiden
+            slideInterval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % partnerSlides.length;
+                showSlide(currentSlide);
+            }, 5000); // Alle 5 Sekunden wechseln
+        }
+        
+        function stopAutoSlide() {
+            if (slideInterval) {
+                clearInterval(slideInterval);
+            }
+        }
+        
+        // Event-Listener für Prev-Button
+        if (prevButton) {
+            prevButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                stopAutoSlide(); // Stoppe automatischen Wechsel bei manuellem Klick
+                currentSlide = (currentSlide - 1 + partnerSlides.length) % partnerSlides.length;
+                showSlide(currentSlide);
+                startAutoSlide(); // Starte automatischen Wechsel neu
+            });
+        }
+        
+        // Event-Listener für Next-Button
+        if (nextButton) {
+            nextButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                stopAutoSlide(); // Stoppe automatischen Wechsel bei manuellem Klick
+                currentSlide = (currentSlide + 1) % partnerSlides.length;
+                showSlide(currentSlide);
+                startAutoSlide(); // Starte automatischen Wechsel neu
+            });
+        }
+        
+        // Event-Listener für Dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', (e) => {
+                e.preventDefault();
+                stopAutoSlide(); // Stoppe automatischen Wechsel bei manuellem Klick
+                showSlide(index);
+                startAutoSlide(); // Starte automatischen Wechsel neu
+            });
         });
-    }
-    
-    if (nextBtn) {
-        nextBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            goToSlide(currentIndex + 1);
-        });
-    }
-    
-    // Event-Listener für Dots
-    dots.forEach((dot, i) => {
-        dot.addEventListener('click', (e) => {
-            e.preventDefault();
-            goToSlide(i);
-        });
+        
+        // Touch-Swipe-Unterstützung für mobile Geräte
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        slideshow.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        slideshow.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50; // Minimale Swipe-Distanz in Pixeln
+            
+            if (touchEndX < touchStartX - swipeThreshold) {
+                // Swipe nach links -> nächster Slide
+                stopAutoSlide();
+                currentSlide = (currentSlide + 1) % partnerSlides.length;
+                showSlide(currentSlide);
+                startAutoSlide();
+            }
+            
+            if (touchEndX > touchStartX + swipeThreshold) {
+                // Swipe nach rechts -> vorheriger Slide
+                stopAutoSlide();
+                currentSlide = (currentSlide - 1 + partnerSlides.length) % partnerSlides.length;
+                showSlide(currentSlide);
+                startAutoSlide();
+            }
+        }
+        
+        // Pause bei Hover
+        slideshow.addEventListener('mouseenter', stopAutoSlide);
+        slideshow.addEventListener('mouseleave', startAutoSlide);
+        
+        // Initialisierung - zeige ersten Slide und starte automatischen Wechsel
+        if (partnerSlides.length > 0) {
+            showSlide(0);
+            startAutoSlide();
+        }
     });
-    
-    // Manuelle Initialisierung der Dot-Klicks, falls Standard-Event-Listener nicht funktionieren
-    dots.forEach((dot, i) => {
-        dot.onclick = function(e) {
-            e.preventDefault();
-            goToSlide(i);
-            return false;
-        };
-    });
-    
-    // Auto-Rotation alle 5 Sekunden
-    let autoRotateInterval = setInterval(() => {
-        goToSlide(currentIndex + 1);
-    }, 5000);
-    
-    // Stoppe Auto-Rotation bei Maus-Hover
-    slideshow.addEventListener('mouseenter', () => {
-        clearInterval(autoRotateInterval);
-    });
-    
-    // Starte Auto-Rotation erneut, wenn Maus das Element verlässt
-    slideshow.addEventListener('mouseleave', () => {
-        autoRotateInterval = setInterval(() => {
-            goToSlide(currentIndex + 1);
-        }, 5000);
-    });
-    
-    // Initiale Anzeige
-    goToSlide(0);
-    
-    console.log("Partner-Slideshow erfolgreich initialisiert");
 }
 
 // Google Maps initialisieren (deaktiviert)
